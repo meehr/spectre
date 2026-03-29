@@ -1,0 +1,130 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Posts",
+      "path": "[[workspace]]/src/content/posts",
+      "contentTypes": ["post"],
+      "defaultLocale": "de"
+    },
+    {
+      "title": "Projects",
+      "path": "[[workspace]]/src/content/projects",
+      "contentTypes": ["project"],
+      "defaultLocale": "de"
+    },
+    {
+      "title": "Other",
+      "path": "[[workspace]]/src/content/other",
+      "contentTypes": ["other"]
+    }
+  ],
+  "frontMatter.content.types": [
+    {
+      "name": "post",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Titel",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Beschreibung",
+          "name": "description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Erstellt am",
+          "name": "createdAt",
+          "type": "datetime",
+          "required": true,
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Aktualisiert am",
+          "name": "updatedAt",
+          "type": "datetime",
+          "required": false
+        },
+        {
+          "title": "Beitragsbild",
+          "name": "image",
+          "type": "image",
+          "required": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags",
+          "required": true
+        },
+        {
+          "title": "Entwurf",
+          "name": "draft",
+          "type": "draft",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Titel",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Beschreibung",
+          "name": "description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Datum",
+          "name": "date",
+          "type": "datetime",
+          "required": true,
+          "default": "{{now}}"
+        },
+        {
+          "title": "Projektbild",
+          "name": "image",
+          "type": "image",
+          "required": true
+        },
+        {
+          "title": "Link",
+          "name": "link",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "other",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Titel",
+          "name": "title",
+          "type": "string",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.tags": [],
+  "frontMatter.taxonomy.categories": [],
+  "frontMatter.content.defaultFileType": "mdx",
+  "frontMatter.telemetry.disable": true
+}

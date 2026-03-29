@@ -3,25 +3,12 @@ import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import expressiveCode from 'astro-expressive-code';
-import { loadEnv } from 'vite';
-import spectre, { type GiscusMapping } from './package/src';
+import spectre from './package/src';
 import { spectreDark } from './src/ec-theme';
-
-const {
-	GISCUS_REPO,
-	GISCUS_REPO_ID,
-	GISCUS_CATEGORY,
-	GISCUS_CATEGORY_ID,
-	GISCUS_MAPPING,
-	GISCUS_STRICT,
-	GISCUS_REACTIONS_ENABLED,
-	GISCUS_EMIT_METADATA,
-	GISCUS_LANG,
-} = loadEnv(process.env.NODE_ENV!, process.cwd(), '');
 
 // https://astro.build/config
 const config = defineConfig({
-	site: 'https://spectre.lou.gg',
+	site: 'https://martin-ehrentraut.de',
 	output: 'static',
 	integrations: [
 		expressiveCode({
@@ -30,31 +17,21 @@ const config = defineConfig({
 		mdx(),
 		sitemap(),
 		spectre({
-			name: 'Spectre',
+			name: 'Martin Ehrentraut',
 			openGraph: {
 				home: {
-					title: 'Spectre',
-					description: 'A minimalistic theme for Astro.',
+					title: 'Martin Ehrentraut',
+					description: 'Portfolio & Blog für technische Projekte.',
 				},
 				blog: {
 					title: 'Blog',
-					description: 'News and guides for Spectre.',
+					description: 'Technische Artikel zu umgesetzten Projekten.',
 				},
 				projects: {
-					title: 'Projects',
+					title: 'Projekte',
 				},
 			},
-			giscus: {
-				repository: GISCUS_REPO,
-				repositoryId: GISCUS_REPO_ID,
-				category: GISCUS_CATEGORY,
-				categoryId: GISCUS_CATEGORY_ID,
-				mapping: GISCUS_MAPPING as GiscusMapping,
-				strict: GISCUS_STRICT === 'true',
-				reactionsEnabled: GISCUS_REACTIONS_ENABLED === 'true',
-				emitMetadata: GISCUS_EMIT_METADATA === 'true',
-				lang: GISCUS_LANG,
-			},
+			// giscus: Kommentare deaktiviert — für spätere Konfiguration
 		}),
 	],
 	adapter: node({

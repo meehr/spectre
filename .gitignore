@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VSCode
+.vscode/
+
+# Images (lokal bearbeitet, nicht ins Git — Nextcloud für Sicherung)
+src/content/assets/*.jpg
+src/content/assets/*.jpeg
+src/content/assets/*.png
+src/content/assets/*.webp
+src/content/assets/*.avif
+src/content/assets/*.gif
+src/content/assets/*.svg
+public/images/
+
+# Frontmatter CMS cache
+.frontmatter/
