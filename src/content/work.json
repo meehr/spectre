@@ -1,9 +1,65 @@
 [
 	{
 		"id": 1,
-		"duration": "2024 - present",
-		"company": "Astro Community",
-		"title": "Astro Theme",
-		"description": "Existing as an Astro theme for anyone to use."
+		"duration": "Okt. 2025 – heute",
+		"company": "netcup GmbH",
+		"title": "Technischer Leiter Abuse",
+		"description": "Technical Lead im Abuse-Bereich mit Fokus auf KI-gestützte Prozesse und Automatisierung. Einsatz von KI zur Automatisierung und Effizienzsteigerung im Abuse-Management."
+	},
+	{
+		"id": 2,
+		"duration": "Jan. 2025 – Okt. 2025",
+		"company": "Anexia",
+		"title": "Technical Lead Abuse",
+		"description": "Technical Lead im Abuse-Bereich mit Schwerpunkt auf Prozessoptimierung. Remote, Karlsruhe."
+	},
+	{
+		"id": 3,
+		"duration": "Nov. 2022 – Jan. 2025",
+		"company": "netcup GmbH",
+		"title": "Systemadministrator",
+		"description": "Systemadministration für Webserver und Infrastruktur. Vollzeit in Karlsruhe."
+	},
+	{
+		"id": 4,
+		"duration": "Okt. 2022 – Okt. 2025",
+		"company": "Freiberuflich",
+		"title": "System Administrator",
+		"description": "Freiberufliche Systemadministration mit Schwerpunkt AWS und Docker."
+	},
+	{
+		"id": 5,
+		"duration": "Nov. 2021 – Okt. 2022",
+		"company": "ATLAS IoT Tech GmbH",
+		"title": "IT-Administrator",
+		"description": "IT-Administration, Technical IoT Consulting, DevOps sowie Second- und Third-Level-Support für Partner. Karlsruhe."
+	},
+	{
+		"id": 6,
+		"duration": "Aug. 2017 – Okt. 2021",
+		"company": "Wanna Vapor",
+		"title": "Filialleiter",
+		"description": "Filialleitung in Landau. Eine lehrreiche Station abseits der IT."
+	},
+	{
+		"id": 7,
+		"duration": "Sept. 2015 – Aug. 2017",
+		"company": "1&1 Internet SE",
+		"title": "SysAdmin",
+		"description": "Linux-Serveradministration und Puppet-Administration. Karlsruhe."
+	},
+	{
+		"id": 8,
+		"duration": "Okt. 2011 – Sept. 2015",
+		"company": "1&1 Internet SE",
+		"title": "Application Operating Manager",
+		"description": "Application Server Operating und Administration von JBoss sowie Datenbankbetrieb. Karlsruhe."
+	},
+	{
+		"id": 9,
+		"duration": "Okt. 2009 – Sept. 2011",
+		"company": "1&1 Internet SE",
+		"title": "Kundendienstmitarbeiter RootServer Support",
+		"description": "First- und Second-Level-Support im Root- und Managed-Server-Bereich. Karlsruhe."
 	}
 ]

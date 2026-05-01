@@ -1,5 +1,19 @@
 [
-	{
-		"id": "guide"
-	}
+	{ "id": "homelab" },
+	{ "id": "docker" },
+	{ "id": "linux" },
+	{ "id": "monitoring" },
+	{ "id": "grafana" },
+	{ "id": "cloudflare" },
+	{ "id": "self-hosting" },
+	{ "id": "security" },
+	{ "id": "networking" },
+	{ "id": "vpn" },
+	{ "id": "website" },
+	{ "id": "astro" },
+	{ "id": "ai" },
+	{ "id": "ki" },
+	{ "id": "claude" },
+	{ "id": "gemini" },
+	{ "id": "private" }
 ]

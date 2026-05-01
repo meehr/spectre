@@ -65,7 +65,7 @@ const { Content, headings } = await render(post);
 			<h2 class="no-mt">Table of contents</h2>
 			<ol>
 				<li class="toc-li">
-					<a href={"#_top"} class="active">{post.data.title}</a>
+					<a href={"#_top"}>{post.data.title}</a>
 				</li>
 				{
 					headings.map((heading) => (
@@ -85,6 +85,8 @@ const { Content, headings } = await render(post);
 					class="article-image"
 					src={post.data.image}
 					alt={post.data.title}
+					loading="eager"
+					fetchpriority="high"
 				/>
 				<div class="header">
 					<div>

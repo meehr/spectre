@@ -3,25 +3,7 @@
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.content.publicFolder": "public",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "Posts",
-      "path": "[[workspace]]/src/content/posts",
-      "contentTypes": ["post"],
-      "defaultLocale": "de"
-    },
-    {
-      "title": "Projects",
-      "path": "[[workspace]]/src/content/projects",
-      "contentTypes": ["project"],
-      "defaultLocale": "de"
-    },
-    {
-      "title": "Other",
-      "path": "[[workspace]]/src/content/other",
-      "contentTypes": ["other"]
-    }
-  ],
+  "frontMatter.content.pageFolders": [],
   "frontMatter.content.types": [
     {
       "name": "post",

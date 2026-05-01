@@ -3,7 +3,7 @@ import "../styles/index.css";
 
 import { getCollection, getEntry, render } from "astro:content";
 import { name, openGraph } from "spectre:globals";
-import ProfilePicture from "../assets/pfp.png";
+import ProfilePicture from "../assets/pfp.webp";
 import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
 import ImageGlow from "../components/ImageGlow.astro";
@@ -34,7 +34,7 @@ const { Content: About } = await render(about!);
 				width={120}
 				height={120}
 				src={ProfilePicture}
-				alt="A purple, minimalist looking ghost."
+				alt="Profilbild von Martin Ehrentraut"
 				loading="eager"
 			/>
 			<h2>{name}</h2>
@@ -164,11 +164,11 @@ const { Content: About } = await render(about!);
 					height={24}
 					class="glow-icon"
 				/>
-				<h2>Work Experience</h2>
+				<h2>Berufserfahrung</h2>
 			</div>
 			<div class="work-experience-container">
 				{
-					workExperience.reverse().map((entry) => (
+					workExperience.map((entry) => (
 						<div class="work-experience-entry">
 							<span class="work-experience-duration">
 								{entry.data.duration}

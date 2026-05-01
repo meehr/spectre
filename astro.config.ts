@@ -18,6 +18,7 @@ const config = defineConfig({
 		sitemap(),
 		spectre({
 			name: 'Martin Ehrentraut',
+			themeColor: '#98FB98',
 			openGraph: {
 				home: {
 					title: 'Martin Ehrentraut',

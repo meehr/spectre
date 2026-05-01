@@ -1,0 +1,104 @@
+---
+title: "Maximale Sicherheit im SCP: Der Netcup Firewall Guide"
+description: "Ein Deep-Dive in das neue Netcup Firewall Feature: Einrichtung, Best Practices und Strategien für VPS und Root-Server."
+createdAt: 2025-03-01
+image: ../assets/netcup-firewall-cover.webp
+tags:
+  - security
+  - networking
+  - homelab
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import imgPolicysErstellen from '../assets/firewall_policys_erstellen.png';
+import imgPolicysHinzufuegen from '../assets/firewall_policys_hinzufuegen.png';
+import imgPolicysUebersicht from '../assets/firewall_policys.png';
+
+Die Sicherheit von Serverinfrastrukturen ist in der heutigen IT-Landschaft kein optionales Feature mehr, sondern das Fundament jedes erfolgreichen Hostings. Wer Root-Server oder VPS betreibt, weiß: Der Moment, in dem eine IP-Adresse öffentlich erreichbar ist, beginnen die Portscans und Angriffsversuche. Bisher waren Administratoren primär auf lokale Lösungen wie `iptables`, `nftables`, `ufw` oder `Fail2Ban` angewiesen.
+
+Doch Netcup hat nachgelegt und ein Feature veröffentlicht, auf das viele gewartet haben: Eine dedizierte, vorgelagerte Firewall, die direkt über das Server Control Panel (SCP) konfiguriert werden kann.
+
+## Der Paradigmenwechsel
+
+Bevor wir in die Konfiguration einsteigen, müssen wir verstehen, warum dieses Feature so mächtig ist. Eine klassische Firewall läuft auf dem Server selbst. Ein böswilliges Paket muss erst durch die Netzwerkinfrastruktur und das Interface des Servers, bevor es blockiert wird.
+
+> **Die neue Netcup SCP Firewall sitzt davor.**
+> Sie agiert auf der Infrastruktur-Ebene von Netcup, noch bevor der Traffic deinen Server erreicht. Unerwünschter Datenverkehr wird also gefiltert, bevor er überhaupt dein System belasten kann.
+
+## Feature-Übersicht
+
+| Feature | Beschreibung |
+|---|---|
+| Zentrale Verwaltung | Konfiguration direkt im Browser über das SCP |
+| Policy-basiert | Regeln werden in Gruppen (Policies) zusammengefasst |
+| Default Policies | Vorgefertigte Schutzmechanismen für neue Server |
+| Granulare Regeln | Filterung nach Protokoll, Source-IP und Ports |
+
+### Neu vs. Bestandskunden
+
+- **Neue Server:** Kommen bereits mit aktivierten Default Policies.
+- **Bestehende Server:** Hier greift das Prinzip der Vorsicht. Du musst die Firewall explizit aktivieren.
+
+## Die Konfiguration im Detail
+
+Die Verwaltung findet im SCP unter dem Reiter "Netzwerk" statt.
+
+### 1. Das Konzept der Policies
+
+Anstatt für jeden Server mühsam einzelne Regeln zu tippen, arbeitet Netcup mit Policies. Eine Policy ist im Grunde ein Container für eine Sammlung von Regeln.
+
+<Image
+  src={imgPolicysErstellen}
+  alt="Screenshot des Netcup SCP: Dialog zum Erstellen einer neuen Firewall-Policy mit Namensfeld und Beschreibung"
+  quality={85}
+  style="width: 100%; height: auto;"
+/>
+
+### 2. Regeln definieren
+
+Wenn du eine Policy bearbeitest oder neu erstellst, öffnet sich der Dialog zum Hinzufügen von Regeln.
+
+<Image
+  src={imgPolicysHinzufuegen}
+  alt="Screenshot des Netcup SCP: Formular zum Hinzufügen einer Firewall-Regel mit Feldern für Protokoll, Source-IP und Port"
+  quality={85}
+  style="width: 100%; height: auto;"
+/>
+
+> **Wichtig: Die Reihenfolge ist entscheidend!**
+> Firewalls arbeiten Listen von oben nach unten ab ("First Match"). Die erste passende Regel gewinnt — alle weiteren werden ignoriert.
+
+### 3. Übersicht & Default Policies
+
+<Image
+  src={imgPolicysUebersicht}
+  alt="Screenshot des Netcup SCP: Übersicht aller Firewall-Policies mit den Standard-Einträgen 'netcup Mail block' und 'netcup Ping allow'"
+  quality={85}
+  style="width: 100%; height: auto;"
+/>
+
+In der Übersicht sehen wir oft zwei interessante Standard-Einträge:
+
+- **netcup Mail block:** Blockiert ausgehenden Mail-Spam (Ports 25, 465, 587).
+- **netcup Ping allow:** Erlaubt ICMP-Traffic für Monitoring.
+
+## Strategien für mehr Sicherheit
+
+### Szenario A: Webserver (Basic)
+
+- **SSH:** Erlaube Port 22 nur für deine eigene IP (wenn statisch).
+- **Web:** Erlaube Port 80/443 für alle (`*`).
+
+### Szenario B: Datenbank-Server
+
+- **Webzugriff:** Ports 80/443 bleiben geschlossen.
+- **Datenbank:** Erlaube Port 3306 nur für die **IP des Webservers**.
+
+### Szenario C: Defense in Depth
+
+Sollte man die lokale Firewall (`ufw / iptables / nftables`) deaktivieren? **Nein!** Doppelt hält besser. Die SCP-Firewall ist die erste Verteidigungslinie — die lokale Firewall bleibt als zweite Schicht aktiv.
+
+## Fazit
+
+Die SCP-Firewall demokratisiert Hochsicherheits-Features für alle Netcup-Kunden. Nutze sie. Nimm dir eine Stunde Zeit, logge dich ins SCP ein und sichere deine Infrastruktur ab — bevor es jemand anderes für dich tut.
